@@ -17,7 +17,7 @@ pipeline {
           steps {
               sh '''
               pwd; ls -al
-              transfer.sh
+              ./transfer.sh
               '''
           }
       }

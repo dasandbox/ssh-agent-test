@@ -10,6 +10,7 @@ node {
   }
   stage('Data Transfer') {
     sh '''
+    pwd; ls -al
     ./transfer.sh
     '''
   }

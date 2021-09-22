@@ -4,7 +4,8 @@ pipeline {
     stages {
       
       stage('git') {
-          agent any
+          //agent any
+          agent { label 'agent1' }
           steps {
               sshagent(credentials: ['github-key-sec']) {
                   // get the last commit

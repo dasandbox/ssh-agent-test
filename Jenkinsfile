@@ -1,9 +1,10 @@
 pipeline {
-  agent { label 'agent1' }
+    agent none
 
-  stages {
+    stages {
       
       stage('git') {
+          agent any
           steps {
               sshagent(credentials: ['github-key-sec']) {
                   // get the last commit
@@ -14,6 +15,7 @@ pipeline {
           }
       }
       stage('Data Transfer') {
+          agent { label 'agent1' }
           steps {
               sshagent(credentials: ['github-key-sec']) {
                   sh '''
@@ -23,6 +25,6 @@ pipeline {
               }
           }
       }
-  }
+    }
 
 }

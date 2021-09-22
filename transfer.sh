@@ -24,6 +24,6 @@ TTWCS_ARCH="/h/data/local/CSDX/data/dx_files/archive/MM"
 
 # Clear local/reaper_cache
 # Use IP address only from AM ip:port
-resp="$( ssh ttwcs@10.1.1.62 "del /Q ${AM_DATA}" )"
+resp="$( ssh -v ttwcs@10.1.1.62 "del /Q ${AM_DATA}" )"
 rm -f "${CACHE}"/*.d1
 echo "Cache cleared ..."

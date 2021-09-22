@@ -15,10 +15,12 @@ pipeline {
       }
       stage('Data Transfer') {
           steps {
-              sh '''
-              pwd; ls -al
-              ./transfer.sh
-              '''
+              sshagent(credentials: ['github-key-sec']) {
+                  sh '''
+                  pwd; ls -al
+                  ./transfer.sh
+                  '''
+              }
           }
       }
   }
